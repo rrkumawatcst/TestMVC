@@ -1,0 +1,24 @@
+﻿@using TestMVC.Models
+@model dynamic
+
+@{
+    Layout = "~/Views/Master/main_layout.cshtml";
+}
+<div class="CreateAccountPage"> 
+    <div>
+        @Html.AntiForgeryToken()
+        @using (Html.BeginForm("TopicView", "Topic", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <th>Topic ID</th>
+                    <th>@Html.TextBox("Topic_ID")</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="submit" id="Submit" value="Submit" /></th>
+                </tr>
+            </table>
+        }
+    </div>
+</div>

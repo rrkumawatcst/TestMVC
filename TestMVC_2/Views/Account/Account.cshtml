@@ -1,0 +1,25 @@
+﻿@using TestMVC.Models
+@model LoginModel
+@{
+    Layout = "~/Views/Master/main_layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Paper.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/GLPStyle.css" type="text/css" />
+    <title>Account</title>
+</head>
+<body>
+    <div> 
+       @{ 
+           LoginModel m = new LoginModel();
+           m.UserName = Model.UserName;
+           m.UserPass = Model.UserPass;
+           <h1 style="margin-top:50px">@m.UserName</h1>
+           <h1 style="margin-top:50px">@m.UserPass</h1>
+       }
+    </div>
+</body>
+</html>

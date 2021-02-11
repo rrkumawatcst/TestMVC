@@ -1,0 +1,33 @@
+﻿@using TestMVC.Models
+@model ViewTopic
+@{
+    ViewBag.Title = "TopicView";
+    Layout = "~/Views/Master/main_layout.cshtml";
+    
+}
+
+<h5 style="margin-top:50px;margin-left:20px;margin-bottom:30px">TopicView Demo And Test | User Name - Admin </h5>
+<div>
+    <h4 style="margin-top:25px;margin-left:35%">@ViewBag.slot_name</h4>
+    <table class="table" style="margin-left:25%;width:50%">
+        <tr>
+            <th>Topic ID</th>
+            <th>Topic Name</th>
+            <th>Current Date</th>
+            <th>Next Date</th>
+            <th>Interval</th>
+            <th></th>
+        </tr>
+        @foreach (Topic t in Model.lstTopic)
+        {
+            <tr>
+                <th>@t.TOPIC_ID</th>
+                <th>@t.TOPIC_NAME</th>
+                <th>@t.CRNT_DATE</th>
+                <th>@t.NEXT_DATE</th>
+                <th>@t.INTERVAL</th>
+                <th><a href="#" class="btn btn-success">View Topic</a></th>
+            </tr>
+        }
+    </table>
+</div>

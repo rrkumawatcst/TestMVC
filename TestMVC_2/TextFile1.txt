@@ -1,0 +1,75 @@
+﻿ <input type="button" value="Login" onclick="window.location.href='@Url.Action("/Account", "Account", new { UserName = usr_name, Password = usr_pss })'" class="btn btn-success" />
+            <input type="button" value="Hello World" onclick="window.location.href='@Url.Action("ActionName", "ControllerName")'" class="btn btn-success" />
+           
+
+
+		   <table class="table table-striped table-hover" style="width:50%">
+            <tr>
+                <th>ID</th>
+                <th>State Name</th>
+                <th>Info</th>
+            </tr>
+            @foreach(TestTable t in Model.viewTestTable)
+            {
+                <tr>
+                    <th>@t.STATE_ID</th>
+                    <th>@t.STATE_NAME</th>
+                    <th style="color:white">@Html.ActionLink("INFO", "ViewState")</th>
+                </tr>
+            }
+        </table>
+
+
+		<!DOCTYPE html>
+
+
+		    <link rel="stylesheet" href="~/Content/Paper.css" type="text/css"/>
+    <link rel="stylesheet" href="~/Content/GLPStyle.css" type="text/css" />
+
+
+
+
+	<table class="table">
+        <tr>
+            <th>Topic ID</th>
+            <th>Current Date</th>
+            <th>Next Date</th>
+        </tr>
+        @foreach(Topic t in Model.lstTopic)
+        {
+            <tr>
+                <th>@t.TOPIC_ID</th>
+                <th>@t.CRNT_DATE</th>
+                <th>@t.NEXT_DATE</th>
+            </tr>
+        }
+    </table>
+
+
+
+
+	<div>
+            @using (Html.BeginForm("Account", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <table>
+                    <tr>
+                        <th class="CellRight">User Name </th>
+                        <th>@Html.TextBoxFor(m=>m.UserName , new { Class = "glp-form-control" })</th>
+                    </tr>
+                    <tr>
+                        <th class="CellRight">Password </th>
+                        <th>@Html.TextBoxFor(m=>m.UserPass, new { Class = "glp-form-control" })</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th style="text-align:center"><input type="submit" id="btnSubmit" value="Submit" class="btn btn-success" style="margin-top:10px" /></th>
+                    </tr>
+                </table>
+            }
+        </div>
+
+
+
+
+		    <meta name="viewport" content="width=device-width" />
